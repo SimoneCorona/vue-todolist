@@ -41,12 +41,26 @@ const app = new Vue (
                     text : 'Portare fuori il cane',
                     done : false,
                 },
-            ]
+            ],
+            newToDo: 
+                {
+                    text : '',
+                    done: true,
+                },    
         },
         methods: {
             deleteToDo: function (index) {
                 this.toDoList.splice(index, 1)
+            },
+
+            addToDo: function () {
+                this.toDoList.push(this.newToDo);
+                this.newToDo= '';
+                }
+            },
+            
+            toogleToDo: function (index) {
+                this.toDoList[index].done != this.toDoList[index].done  
+                },
             }
-        }
-    }
 )
