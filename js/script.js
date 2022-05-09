@@ -42,11 +42,7 @@ const app = new Vue (
                     done : false,
                 },
             ],
-            newToDo: 
-                {
-                    text : '',
-                    done: true,
-                },    
+            newToDo: ''  
         },
         methods: {
             deleteToDo: function (index) {
@@ -54,13 +50,17 @@ const app = new Vue (
             },
 
             addToDo: function () {
-                this.toDoList.push(this.newToDo);
-                this.newToDo= '';
+                const newObj = {
+                    text: this.newToDo,
+                    done: false,    
                 }
+
+                this.toDoList.push(newObj);  
             },
             
             toogleToDo: function (index) {
-                this.toDoList[index].done != this.toDoList[index].done  
-                },
-            }
+                this.toDoList[index].done = !this.toDoList[index].done  
+            },
+        }
+    }
 )
